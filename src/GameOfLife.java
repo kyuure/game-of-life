@@ -55,10 +55,6 @@ public class GameOfLife extends javax.swing.JPanel {
     buffer = createImage(windowX, windowY);
     bg = buffer.getGraphics();
 
-    // Add background color.
-    bg.setColor(Color.WHITE);
-    bg.fillRect(0, 0, getWidth(), getHeight());
-
     // GameOfLife object
     GameOfLife gol = new GameOfLife();
 
