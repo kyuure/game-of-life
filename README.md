@@ -2,13 +2,13 @@
 This repo is intended for GoAcademy Engineering Mini Bootcamp 2021 (Kampus Merdeka Path, i think).
 
 
-## Game of Life Algorithm (J. H. Conway, 1970)
+## Game of Life CA (J. H. Conway, 1970)
 From [the Wikipedia page](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life),
 Game of Life is a Cellular Automaton that is a zero-player game (the program
 plays by itself, one can only see an observe it). It is Turing complete.
 
 ### Rules
-This algorithm is an infinite n dimensional grid of cell (normally a square).
+This CA is an infinite n dimensional grid of cell (normally a square).
 Each cell have 2 states only, alive or dead. Every cell in this universe at each
 generation is affected by their neighbours from the last generation. Because
 this program is intended for 2 dimension, the cells have 8 neighbours to
