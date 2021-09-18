@@ -60,6 +60,15 @@ public class GameOfLife extends javax.swing.JPanel {
     GameOfLife gol = new GameOfLife();
 
     //-------------------------------Draw Section-------------------------------
+    // Draw the cells
+    bg.setColor(Color.BLACK);
+    for(int y = 0; y < grid.length; y++) {
+      for(int x = 0; x < grid[y].length; x++) {
+        if(grid[y][x] == 1) {
+          bg.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
+        }
+      }
+    }
 
     // Draw the image from buffer onto canvas
     g.drawImage(buffer, 0, 0, null);
