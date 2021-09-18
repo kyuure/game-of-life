@@ -9,6 +9,19 @@ import javax.swing.*;
 
 
 public class GameOfLife extends javax.swing.JPanel {
+  // I forgot what this variable used for...
+  private static final long serialVersionUID = 1L;
+
+  // GameOfLife class
+  public GameOfLife() {
+    // 
+  }
+
+  // For canvas
+  @Override
+  public void paintComponent(Graphics g) {
+    // 
+  }
 
   // Main function.
   public static void main(String[] args) {
