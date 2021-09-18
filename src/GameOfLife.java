@@ -30,6 +30,9 @@ public class GameOfLife extends javax.swing.JPanel {
   private int squareSize = 10;
   // Grid for cells' status
   private int[][] grid = new int[windowY/squareSize][windowX/squareSize];
+  private int[][] prevGrid = new int[windowY/squareSize][windowX/squareSize];
+  // total neighbours
+  private int totalNeighbour;
 
 
   // GameOfLife class
@@ -66,6 +69,28 @@ public class GameOfLife extends javax.swing.JPanel {
       for(int x = 0; x < grid[y].length; x++) {
         if(grid[y][x] == 1) {
           bg.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
+        }
+      }
+    }
+
+    //-------------------------------Algo Section-------------------------------
+    // Go to every cells and check its cell.
+    for(int y = 0; y < grid.length; y++) {
+      for(int x = 0; x < grid[y].length; x++) {
+        // Initialize the totalNeighbour to 0.
+        totalNeighbour = 0;
+
+        // Check every neighbours.
+        for(int b = -1; b <= 1; b++) {
+          for(int a = -1; a <= 1; a++) {
+            if(     ((y+b) < 0 || (y+b) >= grid.length)
+                 || ((x+a) < 0 || (x+a) >= grid[y].length)
+                 || (a == 0 && b == 0)) {
+              continue;
+            }
+            // Add its value (either dead or alive) to totalNeighbour.
+            totalNeighbour = totalNeighbour + prevGrid[y+b][x+a];
+          }
         }
       }
     }
