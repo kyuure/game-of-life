@@ -1,4 +1,4 @@
-// For canvas
+// For canvas.
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,7 +6,7 @@ import java.awt.Image;
 import java.awt.Polygon;
 import java.awt.event.*;
 import javax.swing.*;
-// Anything other than canvas
+// Anything other than canvas.
 import java.lang.Math;
 import java.util.Random;
 
@@ -19,23 +19,23 @@ public class GameOfLife extends javax.swing.JPanel {
   // function can access it.
   public static Image buffer;
   public static Graphics bg;
-  // Window and canvas size
+  // Window and canvas size.
   private int windowX = 750;
   private int windowY = 500;
 
-  // Random object
+  // Random object.
   Random rand = new Random();
 
-  // square's size
+  // square's size.
   private int squareSize = 10;
-  // Grid for cells' status
+  // Grid for cells' status.
   private int[][] grid = new int[windowY/squareSize][windowX/squareSize];
   private int[][] prevGrid = new int[windowY/squareSize][windowX/squareSize];
-  // total neighbours
+  // total neighbours.
   private int totalNeighbour;
 
 
-  // GameOfLife class
+  // GameOfLife class.
   public GameOfLife() {
     // Set size for canvas (the same as window size).
     setPreferredSize(new Dimension(windowX, windowY));
@@ -48,7 +48,7 @@ public class GameOfLife extends javax.swing.JPanel {
     }
   }
 
-  // For canvas
+  // For canvas.
   @Override
   public void paintComponent(Graphics g) {
     // Create new canvas.
@@ -101,7 +101,7 @@ public class GameOfLife extends javax.swing.JPanel {
       }
     }
 
-    // Draw the image from buffer onto canvas
+    // Draw the image from buffer onto canvas.
     g.drawImage(buffer, 0, 0, null);
   }
 
