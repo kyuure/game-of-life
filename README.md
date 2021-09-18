@@ -30,6 +30,9 @@ Based on those 3 rules, the algorithm will be (python syntax)
 ```py
 for y in range(Yaxis):
   for x in range(Xaxis):
+    if x == 0 and y == 0:
+      # I mean, the cell cannot be its neighbour. yeah, you get what i mean. i mean, you should.
+      continue
     # Total neighbour that's alive
     totalNeighbour = 0
 
