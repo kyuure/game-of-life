@@ -30,15 +30,15 @@ Based on those 3 rules, the algorithm will be (python syntax)
 ```py
 for y in range(Yaxis):
   for x in range(Xaxis):
-    if x == 0 and y == 0:
-      # I mean, the cell cannot be its neighbour. yeah, you get what i mean. i mean, you should.
-      continue
     # Total neighbour that's alive
     totalNeighbour = 0
 
     # Check every neighbours
     for b in range(-1,1+1):
       for a in range(-1,1+1):
+        if x == 0 and y == 0:
+          # I mean, the cell cannot be its neighbour. yeah, you get what i mean. i mean, you should.
+          continue
         # The cells that's alive have value of 1, and cells that's dead atm
         # has value of 0. So to calculate total neighbours that is alive, we
         # can just add each neighbours' value.
