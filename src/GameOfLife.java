@@ -1,3 +1,13 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Polygon;
+import java.awt.event.*;
+import java.lang.Math;
+import javax.swing.*;
+
+
 public class GameOfLife extends javax.swing.JPanel {
 
   // Main function.
