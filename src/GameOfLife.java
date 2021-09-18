@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;;
 // Anything other than canvas.
-import java.lang.Math;
 import java.util.Random;
 
 
