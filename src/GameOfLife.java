@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;;
 // Anything other than canvas.
+import java.lang.Thread;
 import java.util.Random;
 
 
@@ -106,6 +107,9 @@ public class GameOfLife extends Canvas {
       }
     }
 
+    // Sleep for 10 seconds?.
+    try{Thread.sleep(150);}catch(InterruptedException ie){}
+    // Repaint.
     repaint();
   }
 
