@@ -63,13 +63,19 @@ public class GameOfLife extends javax.swing.JPanel {
     GameOfLife gol = new GameOfLife();
 
     //-------------------------------Draw Section-------------------------------
-    // Draw the cells
-    bg.setColor(Color.BLACK);
+    // Draw the cells and copy the grid.
     for(int y = 0; y < grid.length; y++) {
       for(int x = 0; x < grid[y].length; x++) {
         if(grid[y][x] == 1) {
+          // Set color to black.
+          bg.setColor(Color.BLACK);
+          bg.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
+        } else {
+          bg.setColor(Color.WHITE);
           bg.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
         }
+        // Copy the grid to temporary grid.
+        prevGrid[y][x] = grid[y][x];
       }
     }
 
