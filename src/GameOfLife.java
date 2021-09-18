@@ -38,9 +38,9 @@ public class GameOfLife extends javax.swing.JPanel {
     setPreferredSize(new Dimension(windowX, windowY));
 
     // Generate a random cells' status (grid array). 0 or 1 (dead or alive).
-    for(int i = 0; i < grid.length; i++) {
-      for(int j = 0; j < grid[i].length; j++) {
-        this.grid[i][j] = rand.nextInt(2);
+    for(int y = 0; y < grid.length; y++) {
+      for(int x = 0; x < grid[y].length; x++) {
+        this.grid[y][x] = rand.nextInt(2);
       }
     }
   }
