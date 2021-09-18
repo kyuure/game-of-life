@@ -17,11 +17,13 @@ interact with. And there are only 4 rules applied, that is:
 2. Any live cell with two or three live neighbours lives on to the next generation.
 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
 From those rules, it can be simplified to:
 1. Any live cell with two or three live neighbours survives.
 2. Any dead cell with three live neighbours becomes a live cell.
 3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
-Again, it references is [Game of Life Wikipedia page](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
+
+Again, it references is [Game of Life Wikipedia page](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules).
 
 ### Algorithm
 Based on those 3 rules, the algorithm will be (python syntax)
@@ -51,7 +53,7 @@ for y in range(Yaxis):
     else:
       # The cell dead
       if totalNeighbour == 3:
-        # become a live becuase reproduction
+        # become a live because of reproduction
         newGrid[y][x] = 1
       else:
         # still dead.
