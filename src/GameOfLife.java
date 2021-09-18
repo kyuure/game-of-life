@@ -40,7 +40,7 @@ public class GameOfLife extends javax.swing.JPanel {
     // Generate a random cells' status (grid array). 0 or 1 (dead or alive).
     for(int i = 0; i < grid.length; i++) {
       for(int j = 0; j < grid[i].length; j++) {
-        grid[i][j] = rand.nextInt(2);
+        this.grid[i][j] = rand.nextInt(2);
       }
     }
   }
