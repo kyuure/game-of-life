@@ -98,6 +98,27 @@ public class GameOfLife extends javax.swing.JPanel {
             totalNeighbour = totalNeighbour + prevGrid[y+b][x+a];
           }
         }
+
+        // Check cell status for next generation.
+        if(prevGrid[y][x] == 1) {
+          // The cell alive.
+          if(totalNeighbour < 2 || totalNeighbour > 3) {
+            // Dies because of (under/over)population.
+            grid[y][x] = 0;
+          } else {
+            // Statis.
+            grid[y][x] = prevGrid[y][x];
+          }
+        } else {
+          // The cell dead.
+          if(totalNeighbour == 3) {
+            // Become alive due to reporduction.
+            grid[y][x] = 1;
+          } else {
+            // Statis.
+            grid[y][x] = prevGrid[y][x];
+          }
+        }
       }
     }
 
