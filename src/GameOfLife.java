@@ -1,11 +1,14 @@
+// For canvas
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Polygon;
 import java.awt.event.*;
-import java.lang.Math;
 import javax.swing.*;
+// Anything other than canvas
+import java.lang.Math;
+import java.util.Random;
 
 
 public class GameOfLife extends javax.swing.JPanel {
@@ -20,10 +23,26 @@ public class GameOfLife extends javax.swing.JPanel {
   private int windowX = 750;
   private int windowY = 500;
 
+  // Random object
+  Random rand = new Random();
+
+  // square's size
+  private int squareSize = 10;
+  // Grid for cells' status
+  private int[][] grid = new int[windowY/squareSize][windowX/squareSize];
+
+
   // GameOfLife class
   public GameOfLife() {
     // Set size for canvas (the same as window size).
     setPreferredSize(new Dimension(windowX, windowY));
+
+    // Generate a random cells' status (grid array). 0 or 1 (dead or alive).
+    for(int i = 0; i < grid.length; i++) {
+      for(int j = 0; j < grid[i].length; j++) {
+        grid[i][j] = rand.nextInt(2);
+      }
+    }
   }
 
   // For canvas
