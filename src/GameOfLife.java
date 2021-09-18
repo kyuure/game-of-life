@@ -1,27 +1,20 @@
 // For canvas.
+import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Polygon;
-import java.awt.event.*;
-import javax.swing.*;
+import javax.swing.JFrame;;
 // Anything other than canvas.
 import java.lang.Math;
 import java.util.Random;
 
 
-public class GameOfLife extends javax.swing.JPanel {
+public class GameOfLife extends Canvas {
   // I forgot what this variable used for...
   private static final long serialVersionUID = 1L;
 
-  // For canvas variable. This variable will be declared publicly so that main
-  // function can access it.
-  public static Image buffer;
-  public static Graphics bg;
   // Window and canvas size.
-  private int windowX = 750;
-  private int windowY = 500;
+  private static int windowX = 750;
+  private static int windowY = 500;
 
   // Random object.
   Random rand = new Random();
@@ -37,9 +30,6 @@ public class GameOfLife extends javax.swing.JPanel {
 
   // GameOfLife class.
   public GameOfLife() {
-    // Set size for canvas (the same as window size).
-    setPreferredSize(new Dimension(windowX, windowY));
-
     // Generate a random cells' status (grid array). 0 or 1 (dead or alive).
     for(int y = 0; y < grid.length; y++) {
       for(int x = 0; x < grid[y].length; x++) {
@@ -50,10 +40,9 @@ public class GameOfLife extends javax.swing.JPanel {
 
   // For canvas.
   @Override
-  public void paintComponent(Graphics g) {
-    // Create new canvas.
-    buffer = createImage(windowX, windowY);
-    bg = buffer.getGraphics();
+  public void paint(Graphics g) {
+    // Access paint superclass constructor.
+    super.paint(g);
 
     // GameOfLife object
     GameOfLife gol = new GameOfLife();
@@ -64,11 +53,11 @@ public class GameOfLife extends javax.swing.JPanel {
       for(int x = 0; x < grid[y].length; x++) {
         if(grid[y][x] == 1) {
           // Set color to black.
-          bg.setColor(Color.BLACK);
-          bg.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
+          g.setColor(Color.BLACK);
+          g.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
         } else {
-          bg.setColor(Color.WHITE);
-          bg.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
+          g.setColor(Color.WHITE);
+          g.fillRect(x*squareSize, y*squareSize, squareSize, squareSize);
         }
         // Copy the grid to temporary grid.
         prevGrid[y][x] = grid[y][x];
@@ -85,9 +74,9 @@ public class GameOfLife extends javax.swing.JPanel {
         // Check every neighbours.
         for(int b = -1; b <= 1; b++) {
           for(int a = -1; a <= 1; a++) {
-            if(     ((y+b) < 0 || (y+b) >= grid.length)
-                 || ((x+a) < 0 || (x+a) >= grid[y].length)
-                 || (a == 0 && b == 0)) {
+            if(    ((y+b) < 0 || (y+b) >= grid.length)
+                || ((x+a) < 0 || (x+a) >= grid[y].length)
+                || (a == 0 && b == 0)) {
               continue;
             }
             // Add its value (either dead or alive) to totalNeighbour.
@@ -118,22 +107,24 @@ public class GameOfLife extends javax.swing.JPanel {
       }
     }
 
-    // Draw the image from buffer onto canvas.
-    g.drawImage(buffer, 0, 0, null);
+    repaint();
   }
 
   // Main function.
-  public static void main(String[] args) {
-    SwingUtilities.invokeLater(new Runnable() {
+  public static void main(String[] args) throws InterruptedException {
+    java.awt.EventQueue.invokeLater(new Runnable() {
+      @Override
       public void run() {
-        javax.swing.JFrame frame = new javax.swing.JFrame("Game of Life, CA, salsa's version");
-        frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        // Create new frame.
+        JFrame frame = new JFrame();
 
-        frame.getContentPane().add(new GameOfLife());
+        // Setting for window.
+        frame.setSize(windowX, windowY);
+        frame.setTitle("Game of Life, CA, salsa's version");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setResizable(false);
-        frame.pack();
-        frame.setLocationByPlatform(true);
+        // Draw and show it.
+        frame.add(new GameOfLife());
         frame.setVisible(true);
       }
     });
