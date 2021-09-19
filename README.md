@@ -75,3 +75,8 @@ for y in range(Yaxis):
 </td>
   </tr>
 </table>
+
+
+## Reference
+- [Game of Life - Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+- My Projects
