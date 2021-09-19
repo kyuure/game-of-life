@@ -122,7 +122,7 @@ public class GameOfLife extends Canvas {
         JFrame frame = new JFrame();
 
         // Setting for window.
-        frame.setSize(windowX, windowY);
+        frame.setSize(windowX, windowY+30);
         frame.setTitle("Game of Life, CA, salsa's version");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
