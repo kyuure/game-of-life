@@ -62,3 +62,16 @@ for y in range(Yaxis):
         # still dead.
         newGrid[y][x] = grid[y][x]
 ```
+
+
+## Author
+<table>
+  <tr>
+<td align="center">
+  <img src="https://avatars.githubusercontent.com/kyuure" width="100px;" alt="Salsabila Qothrunnada" style="border-radius:50%"/>
+  <br/>
+  <sub><b>S Qothrunnada</b></sub>
+  <br/>
+</td>
+  </tr>
+</table>
